@@ -279,6 +279,36 @@
     background:var(--panel);
   }
 
+  /* ---------- Testimonials ---------- */
+  .testimonials{padding:100px 24px; position:relative; z-index:1;}
+  .testimonial-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;
+    max-width:var(--maxw); margin:0 auto;
+  }
+  .testimonial-card{
+    background:var(--panel); border:1px solid var(--panel-border);
+    border-radius:var(--radius); padding:30px 28px;
+    display:flex; flex-direction:column;
+    transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .testimonial-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(56,225,198,0.4);
+    box-shadow:0 20px 50px -20px rgba(56,225,198,0.15);
+  }
+  .testimonial-quote{color:var(--accent); margin-bottom:16px;}
+  .testimonial-stars{display:flex; gap:3px; margin-bottom:16px; color:var(--accent);}
+  .testimonial-text{color:var(--text-dim); font-size:0.94rem; margin-bottom:24px; flex:1;}
+  .testimonial-person{display:flex; align-items:center; gap:12px; padding-top:20px; border-top:1px solid var(--panel-border);}
+  .testimonial-person .avatar{
+    width:42px; height:42px; border-radius:50%; flex:none;
+    background:linear-gradient(135deg, var(--accent), var(--accent-2));
+    color:#06140f; font-family:var(--font-head); font-weight:700; font-size:0.86rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .testimonial-person div b{display:block; font-size:0.92rem;}
+  .testimonial-person div span{font-size:0.8rem; color:var(--text-faint);}
+
   /* ---------- Contact ---------- */
   .contact{padding:100px 24px; background:var(--bg-alt); border-top:1px solid var(--panel-border); position:relative; z-index:1;}
   .contact-inner{
@@ -338,7 +368,7 @@
   @media (max-width:1024px){
     .hero-inner{grid-template-columns:1fr; gap:44px;}
     .hero-visual{justify-self:center; margin-top:12px; max-width:420px;}
-    .service-grid{grid-template-columns:repeat(2, 1fr);}
+    .service-grid, .testimonial-grid{grid-template-columns:repeat(2, 1fr);}
     .about-inner, .contact-inner{grid-template-columns:1fr; gap:40px;}
     .about-visual{order:2;}
   }
@@ -361,8 +391,8 @@
 
   /* Tablet portrait / phone landscape */
   @media (max-width:768px){
-    .wrap, .hero, .services, .process, .about, .industries, .contact{padding-left:20px; padding-right:20px;}
-    .service-grid{grid-template-columns:1fr;}
+    .wrap, .hero, .services, .process, .about, .industries, .testimonials, .contact{padding-left:20px; padding-right:20px;}
+    .service-grid, .testimonial-grid{grid-template-columns:1fr;}
     .process-grid{grid-template-columns:1fr 1fr; row-gap:36px; column-gap:20px;}
     .process-grid::before{display:none;}
     .hero-stats{gap:24px;}
@@ -372,7 +402,7 @@
   @media (max-width:560px){
     .nav{padding:14px 16px;}
     .hero{padding:52px 16px 60px;}
-    .services, .process, .about, .contact, .industries{padding-left:16px; padding-right:16px;}
+    .services, .process, .about, .contact, .industries, .testimonials{padding-left:16px; padding-right:16px;}
     .hero-actions{flex-direction:column; align-items:stretch;}
     .hero-actions .cta-btn, .hero-actions .cta-ghost{justify-content:center;}
     .hero-stats{gap:20px 28px;}
@@ -413,6 +443,7 @@
       <a href="#process">Process</a>
       <a href="#about">About</a>
       <a href="#industries">Industries</a>
+      <a href="#testimonials">Testimonials</a>
       <a href="#contact">Contact</a>
       <a href="#contact" class="cta-btn">Start a Project</a>
     </nav>
@@ -619,6 +650,66 @@
       <span class="industry-chip">Medical Devices</span>
       <span class="industry-chip">IoT &amp; Instrumentation</span>
       <span class="industry-chip">Automotive Systems</span>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="section-head">
+      <div class="eyebrow" style="margin:0 auto 16px; width:fit-content;"><span class="dot"></span> CLIENT FEEDBACK</div>
+      <h2>What clients say after we ship</h2>
+      <p>A few words from teams we've taken from control problem to validated, field-running hardware.</p>
+    </div>
+    <div class="testimonial-grid">
+
+      <div class="testimonial-card">
+        <svg class="testimonial-quote" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 6C6.5 7.5 5 9.8 5 13c0 2.2 1.6 3.8 3.6 3.8 1.8 0 3.2-1.4 3.2-3.2 0-1.7-1.2-3-2.8-3-.3 0-.5 0-.8.1.4-1.6 1.7-3 3.4-3.8L9.5 6zm9.4 0c-3 1.5-4.5 3.8-4.5 7 0 2.2 1.6 3.8 3.6 3.8 1.8 0 3.2-1.4 3.2-3.2 0-1.7-1.2-3-2.8-3-.3 0-.5 0-.8.1.4-1.6 1.7-3 3.4-3.8L18.9 6z"/></svg>
+        <div class="testimonial-stars">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.6 7-6.3-3.7-6.3 3.7 1.6-7-5.3-4.8 7.1-.7z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.6 7-6.3-3.7-6.3 3.7 1.6-7-5.3-4.8 7.1-.7z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.6 7-6.3-3.7-6.3 3.7 1.6-7-5.3-4.8 7.1-.7z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.6 7-6.3-3.7-6.3 3.7 1.6-7-5.3-4.8 7.1-.7z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.6 7-6.3-3.7-6.3 3.7 1.6-7-5.3-4.8 7.1-.7z"/></svg>
+        </div>
+        <p class="testimonial-text">"They rebuilt our motion controller's inner loop and hit sub-millisecond jitter on the first bring-up. The kind of firmware team that actually understands the control theory, not just the code."</p>
+        <div class="testimonial-person">
+          <div class="avatar">DK</div>
+          <div><b>Dana Kessler</b><span>VP Engineering, Arclite Robotics</span></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <svg class="testimonial-quote" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 6C6.5 7.5 5 9.8 5 13c0 2.2 1.6 3.8 3.6 3.8 1.8 0 3.2-1.4 3.2-3.2 0-1.7-1.2-3-2.8-3-.3 0-.5 0-.8.1.4-1.6 1.7-3 3.4-3.8L9.5 6zm9.4 0c-3 1.5-4.5 3.8-4.5 7 0 2.2 1.6 3.8 3.6 3.8 1.8 0 3.2-1.4 3.2-3.2 0-1.7-1.2-3-2.8-3-.3 0-.5 0-.8.1.4-1.6 1.7-3 3.4-3.8L18.9 6z"/></svg>
+        <div class="testimonial-stars">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.6 7-6.3-3.7-6.3 3.7 1.6-7-5.3-4.8 7.1-.7z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.6 7-6.3-3.7-6.3 3.7 1.6-7-5.3-4.8 7.1-.7z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.6 7-6.3-3.7-6.3 3.7 1.6-7-5.3-4.8 7.1-.7z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.6 7-6.3-3.7-6.3 3.7 1.6-7-5.3-4.8 7.1-.7z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.6 7-6.3-3.7-6.3 3.7 1.6-7-5.3-4.8 7.1-.7z"/></svg>
+        </div>
+        <p class="testimonial-text">"We handed them a power stage with a tight EMC budget and a tighter deadline. Board came back clean on the first spin, and the firmware team was already running control loops on it a week later."</p>
+        <div class="testimonial-person">
+          <div class="avatar">RT</div>
+          <div><b>Ronen Tal</b><span>Founder, Voltaic Drives</span></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <svg class="testimonial-quote" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 6C6.5 7.5 5 9.8 5 13c0 2.2 1.6 3.8 3.6 3.8 1.8 0 3.2-1.4 3.2-3.2 0-1.7-1.2-3-2.8-3-.3 0-.5 0-.8.1.4-1.6 1.7-3 3.4-3.8L9.5 6zm9.4 0c-3 1.5-4.5 3.8-4.5 7 0 2.2 1.6 3.8 3.6 3.8 1.8 0 3.2-1.4 3.2-3.2 0-1.7-1.2-3-2.8-3-.3 0-.5 0-.8.1.4-1.6 1.7-3 3.4-3.8L18.9 6z"/></svg>
+        <div class="testimonial-stars">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.6 7-6.3-3.7-6.3 3.7 1.6-7-5.3-4.8 7.1-.7z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.6 7-6.3-3.7-6.3 3.7 1.6-7-5.3-4.8 7.1-.7z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.6 7-6.3-3.7-6.3 3.7 1.6-7-5.3-4.8 7.1-.7z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.6 7-6.3-3.7-6.3 3.7 1.6-7-5.3-4.8 7.1-.7z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.6 7-6.3-3.7-6.3 3.7 1.6-7-5.3-4.8 7.1-.7z"/></svg>
+        </div>
+        <p class="testimonial-text">"Our instrumentation platform had to pass a strict validation protocol before it could touch a patient. G.M. treated that seriously from day one — documentation, traceability, failure-mode analysis, all of it."</p>
+        <div class="testimonial-person">
+          <div class="avatar">SL</div>
+          <div><b>Sarit Lev</b><span>Director of R&amp;D, Meridian Medical Systems</span></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
